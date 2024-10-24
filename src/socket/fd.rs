@@ -65,7 +65,7 @@ impl Fd {
         }
     }
 
-    pub(super) fn clone(&self) -> Self {
+    pub fn clone(&self) -> Self {
         Self {
             id: self.id,
             pollfd_read: self.pollfd_read,
