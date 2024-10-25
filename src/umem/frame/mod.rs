@@ -180,6 +180,18 @@ impl<'umem> HeadroomMut<'umem> {
         Self { len, buf }
     }
 
+    /// Sets the length of the segment.
+    #[inline]
+    pub fn set_length(&mut self, length: usize) {
+        *self.len = length;
+    }
+
+    /// Gets the current length of the segment.
+    #[inline]
+    pub fn length(&self) -> usize {
+        *self.len
+    }
+
     /// Returns this segment's contents, up to its current length.
     #[inline]
     pub fn contents(&self) -> &[u8] {
@@ -305,6 +317,18 @@ pub struct DataMut<'umem> {
 impl<'umem> DataMut<'umem> {
     pub(super) fn new(len: &'umem mut usize, buf: &'umem mut [u8]) -> Self {
         Self { len, buf }
+    }
+
+    /// Sets the length of the segment.
+    #[inline]
+    pub fn set_length(&mut self, length: usize) {
+        *self.len = length;
+    }
+
+    /// Gets the current length of the segment.
+    #[inline]
+    pub fn length(&self) -> usize {
+        *self.len
     }
 
     /// Returns this segment's contents, up to its current length.
