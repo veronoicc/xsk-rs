@@ -278,7 +278,7 @@ impl<'umem> Data<'umem> {
     ///
     /// Will change as packets are sent or received using this frame.
     #[inline]
-    pub fn contents(&self) -> &[u8] {
+    pub fn contents(&self) -> &'umem [u8] {
         self.contents
     }
 }
